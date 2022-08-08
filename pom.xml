@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.6.8</version>
+    <version>2.7.2</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-  <groupId>uk.gov.dwp.health.pip</groupId>
-  <artifactId>correlationId-springboot-starter</artifactId>
-  <version>0.0.3</version>
+  <groupId>uk.gov.dwp.health</groupId>
+  <artifactId>springboot-starter-correlationId</artifactId>
+  <version>2.0.0</version>
   <name>Logging with correlation ID springboot stater</name>
   <description>Logging Monitoring</description>
 
@@ -18,19 +18,19 @@
     <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <dwp.encoded.log.version>2.2.2-fa307a4d</dwp.encoded.log.version>
+    <dwp.encoded.log.version>2.2.3-112b45f6</dwp.encoded.log.version>
 
     <plugin-jacoco.version>0.8.8</plugin-jacoco.version>
-    <plugin-owasp.version>7.1.0</plugin-owasp.version>
+    <plugin-owasp.version>7.1.1</plugin-owasp.version>
     <plugin-maven-compiler.version>3.10.1</plugin-maven-compiler.version>
-    <pitest-junit5-plugin.version>0.15</pitest-junit5-plugin.version>
-    <plugin-pitest.version>1.7.5</plugin-pitest.version>
-    <plugin-projectinfo.version>3.1.1</plugin-projectinfo.version>
-    <plugin-surefire.version>2.22.0</plugin-surefire.version>
-    <plugin-pmd.version>3.16.0</plugin-pmd.version>
-    <plugin-jxr.version>3.0.0</plugin-jxr.version>
-    <plugin-spotbugs.version>4.6.0.0</plugin-spotbugs.version>
-    <plugin-maven.checkstyle-puppycrawl.version>10.2</plugin-maven.checkstyle-puppycrawl.version>
+    <pitest-junit5-plugin.version>0.16</pitest-junit5-plugin.version>
+    <plugin-pitest.version>1.8.1</plugin-pitest.version>
+    <plugin-projectinfo.version>3.3.0</plugin-projectinfo.version>
+    <plugin-surefire.version>2.22.2</plugin-surefire.version>
+    <plugin-pmd.version>3.17.0</plugin-pmd.version>
+    <plugin-jxr.version>3.2.0</plugin-jxr.version>
+    <plugin-spotbugs.version>4.7.1.0</plugin-spotbugs.version>
+    <plugin-maven.checkstyle-puppycrawl.version>10.3.1</plugin-maven.checkstyle-puppycrawl.version>
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
   </properties>
 
@@ -226,10 +226,10 @@
         </dependencies>
         <configuration>
           <targetClasses>
-            <param>uk.gov.dwp.health.pip.monitoring.*</param>
+            <param>uk.gov.dwp.health.monitoring.*</param>
           </targetClasses>
           <targetTests>
-            <param>uk.gov.dwp.health.pip.monitoring.*</param>
+            <param>uk.gov.dwp.health.monitoring.*</param>
           </targetTests>
         </configuration>
       </plugin>

@@ -1,10 +1,10 @@
-package uk.gov.dwp.health.pip.monitoring.handler;
+package uk.gov.dwp.health.monitoring.handler;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.web.client.ResponseErrorHandler;
-import uk.gov.dwp.health.pip.monitoring.exception.RestResponseException;
+import uk.gov.dwp.health.monitoring.exception.RestResponseException;
 
 import java.io.IOException;
 

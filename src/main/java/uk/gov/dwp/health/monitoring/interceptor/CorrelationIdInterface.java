@@ -1,4 +1,4 @@
-package uk.gov.dwp.health.pip.monitoring.interceptor;
+package uk.gov.dwp.health.monitoring.interceptor;
 
 import org.slf4j.MDC;
 

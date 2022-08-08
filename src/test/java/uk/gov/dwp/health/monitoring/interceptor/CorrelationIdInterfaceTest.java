@@ -1,7 +1,8 @@
-package uk.gov.dwp.health.pip.monitoring.interceptor;
+package uk.gov.dwp.health.monitoring.interceptor;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.slf4j.MDC;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -17,7 +18,7 @@ class CorrelationIdInterfaceTest {
   @Test
   @DisplayName("test generate random uuid as correlation id")
   void testGenerateRandomUuidAsCorrelationId() {
-    CorrelationIdInterface cut = spy(CorrelationIdInterface.class);
+    CorrelationIdInterface cut = Mockito.spy(CorrelationIdInterface.class);
     var actual = cut.generateCorrelationId();
     assertNotNull(actual);
   }
@@ -25,7 +26,7 @@ class CorrelationIdInterfaceTest {
   @Test
   @DisplayName("test set correlation id with null generateCorrelationId invoked")
   void testCorrelationIdWithNullGenerateCorrelationIdInvoked() {
-    CorrelationIdInterface cut = spy(CorrelationIdInterface.class);
+    CorrelationIdInterface cut = Mockito.spy(CorrelationIdInterface.class);
     cut.setCorrelationIdToContext(null);
     var actual = MDC.get("correlationId");
     assertNotNull(actual);
@@ -36,7 +37,7 @@ class CorrelationIdInterfaceTest {
   @DisplayName("test set correlation id with nonNull")
   void testSetCorrelationIdWithNonNull() {
     var id = "12345";
-    CorrelationIdInterface cut = spy(CorrelationIdInterface.class);
+    CorrelationIdInterface cut = Mockito.spy(CorrelationIdInterface.class);
     cut.setCorrelationIdToContext(id);
     var actual = MDC.get("correlationId");
     assertEquals(id, actual);
@@ -50,7 +51,7 @@ class CorrelationIdInterfaceTest {
     MDC.put("correlationId", id);
     var actual = MDC.get("correlationId");
     assertNotNull(actual);
-    CorrelationIdInterface cut = spy(CorrelationIdInterface.class);
+    CorrelationIdInterface cut = Mockito.spy(CorrelationIdInterface.class);
     cut.removeCorrelationIdFromContext();
     actual = MDC.get("correlationId");
     assertNull(actual);

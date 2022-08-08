@@ -1,16 +1,15 @@
-package uk.gov.dwp.health.pip.monitoring.interceptor;
+package uk.gov.dwp.health.monitoring.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
 @Component
-public class CorrelationIdInterceptor extends HandlerInterceptorAdapter
-    implements CorrelationIdInterface {
+public class CorrelationIdInterceptor implements CorrelationIdInterface, HandlerInterceptor {
 
   @Override
   public boolean preHandle(

@@ -1,4 +1,4 @@
-package uk.gov.dwp.health.pip.monitoring.exception;
+package uk.gov.dwp.health.monitoring.exception;
 
 import lombok.Generated;
 import lombok.Getter;

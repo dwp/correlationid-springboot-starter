@@ -1,4 +1,4 @@
-package uk.gov.dwp.health.pip.monitoring.config;
+package uk.gov.dwp.health.monitoring.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -7,14 +7,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
-import uk.gov.dwp.health.pip.monitoring.handler.HttpResponseErrorHandler;
-import uk.gov.dwp.health.pip.monitoring.interceptor.RestTemplateInterceptor;
+import uk.gov.dwp.health.monitoring.handler.HttpResponseErrorHandler;
+import uk.gov.dwp.health.monitoring.interceptor.RestTemplateInterceptor;
 
 import java.util.List;
 
 @Slf4j
 @Configuration
-@ConditionalOnProperty(prefix = "feature.correlation", name = {"enabled"}, havingValue = "true")
+@ConditionalOnProperty(
+    prefix = "uk.gov.dwp.health.feature.correlation",
+    name = {"enabled"},
+    havingValue = "true")
 public class RestTemplateConfig {
 
   /**

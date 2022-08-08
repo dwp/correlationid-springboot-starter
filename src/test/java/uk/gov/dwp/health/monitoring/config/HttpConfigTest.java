@@ -1,9 +1,9 @@
-package uk.gov.dwp.health.pip.monitoring.config;
+package uk.gov.dwp.health.monitoring.config;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import uk.gov.dwp.health.pip.monitoring.interceptor.CorrelationIdInterceptor;
+import uk.gov.dwp.health.monitoring.interceptor.CorrelationIdInterceptor;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;

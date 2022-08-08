@@ -1,4 +1,4 @@
-package uk.gov.dwp.health.pip.monitoring.interceptor;
+package uk.gov.dwp.health.monitoring.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpRequest;

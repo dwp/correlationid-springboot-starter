@@ -1,4 +1,4 @@
-package uk.gov.dwp.health.pip.monitoring.handler;
+package uk.gov.dwp.health.monitoring.handler;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.client.ClientHttpResponse;
-import uk.gov.dwp.health.pip.monitoring.exception.RestResponseException;
+import uk.gov.dwp.health.monitoring.exception.RestResponseException;
 
 import java.io.IOException;
 import java.util.stream.Stream;
