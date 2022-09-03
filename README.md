@@ -28,7 +28,7 @@ mvn clean verify install
 
 ## Auto-Configuration
 
-By default, the correlation ID is turned off. To enable it, set the following configuration
+By default, the correlation ID is turned on. To disable it, set the following configuration
 in the `application.yml`
 
 ```yaml
@@ -38,7 +38,20 @@ uk:
       health:
         feature:
           correlation:
-            enabled: true
+            enabled: false
+```
+
+custom RestTemplate with CorrelationID tracer enabled. Use following configuration to replace
+standard RestTemplate.
+
+```yaml
+uk:
+  gov:
+    dwp:
+      health:
+        correlation:
+          rest:
+            enabled: true            
 ```
 
 ## Override response handler

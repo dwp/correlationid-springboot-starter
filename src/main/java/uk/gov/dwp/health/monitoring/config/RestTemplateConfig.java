@@ -15,7 +15,7 @@ import java.util.List;
 @Slf4j
 @Configuration
 @ConditionalOnProperty(
-    prefix = "uk.gov.dwp.health.feature.correlation",
+    prefix = "uk.gov.dwp.health.correlation.rest",
     name = {"enabled"},
     havingValue = "true")
 public class RestTemplateConfig {

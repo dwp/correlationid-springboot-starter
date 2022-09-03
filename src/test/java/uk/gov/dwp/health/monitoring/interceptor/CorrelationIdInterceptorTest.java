@@ -1,6 +1,6 @@
 package uk.gov.dwp.health.monitoring.interceptor;
 
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.slf4j.MDC;
@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
@@ -21,11 +22,11 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+@DisplayNameGeneration(ReplaceUnderscores.class)
 class CorrelationIdInterceptorTest {
 
   @Test
-  @DisplayName("test preHandle should get x-correlation-id from header")
-  void testPreHandleShouldGetXCorrelationIdFromHeader() {
+  void should_preHandle_get_xCorrelation_id_from_header() {
     var cut = spy(new CorrelationIdInterceptor());
     var req = mock(HttpServletRequest.class);
     var resp = mock(HttpServletResponse.class);
@@ -42,8 +43,7 @@ class CorrelationIdInterceptorTest {
   }
 
   @Test
-  @DisplayName("test preHandle should generate new correlation id")
-  void testPreHandleShouldGenerateNewCorrelationId() {
+  void should_preHandle_generate_new_correlation_id() {
     var cut = spy(new CorrelationIdInterceptor());
     var req = mock(HttpServletRequest.class);
     var resp = mock(HttpServletResponse.class);
@@ -59,8 +59,7 @@ class CorrelationIdInterceptorTest {
   }
 
   @Test
-  @DisplayName("test should read correlation id from MDC")
-  void testShouldReadCorrelationIdFromMdc() {
+  void should_read_correlation_id_from_mdc() {
     var cut = spy(new CorrelationIdInterceptor());
     var correlationId = UUID.randomUUID().toString();
     MDC.put("correlationId", correlationId);
@@ -69,8 +68,7 @@ class CorrelationIdInterceptorTest {
   }
 
   @Test
-  @DisplayName("test remove correlation id from context after request life cycle completes")
-  void testRemoveCorrelationIdFromContextAfterRequestLifecycleComplete() {
+  void should_remove_correlation_id_from_context_after_request_lifecycle_completed() {
     var cut = spy(new CorrelationIdInterceptor());
     var correlationId = UUID.randomUUID().toString();
     MDC.put("correlationId", correlationId);

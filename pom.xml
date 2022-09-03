@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.2</version>
+    <version>2.7.3</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>uk.gov.dwp.health</groupId>
   <artifactId>springboot-starter-correlationId</artifactId>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
   <name>Logging with correlation ID springboot stater</name>
   <description>Logging Monitoring</description>
 
@@ -19,19 +19,19 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <dwp.encoded.log.version>2.2.3-112b45f6</dwp.encoded.log.version>
-
+    <snakeyaml.version>1.31</snakeyaml.version>
     <plugin-jacoco.version>0.8.8</plugin-jacoco.version>
-    <plugin-owasp.version>7.1.1</plugin-owasp.version>
+    <plugin-owasp.version>7.1.2</plugin-owasp.version>
     <plugin-maven-compiler.version>3.10.1</plugin-maven-compiler.version>
-    <pitest-junit5-plugin.version>0.16</pitest-junit5-plugin.version>
-    <plugin-pitest.version>1.8.1</plugin-pitest.version>
-    <plugin-projectinfo.version>3.3.0</plugin-projectinfo.version>
-    <plugin-surefire.version>2.22.2</plugin-surefire.version>
-    <plugin-pmd.version>3.17.0</plugin-pmd.version>
-    <plugin-jxr.version>3.2.0</plugin-jxr.version>
-    <plugin-spotbugs.version>4.7.1.0</plugin-spotbugs.version>
-    <plugin-maven.checkstyle-puppycrawl.version>10.3.1</plugin-maven.checkstyle-puppycrawl.version>
-    <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+    <pitest-junit5-plugin.version>1.0.0</pitest-junit5-plugin.version>
+    <plugin-pitest.version>1.9.5</plugin-pitest.version>
+    <plugin-projectinfo.version>3.4.1</plugin-projectinfo.version>
+    <plugin-surefire.version>3.0.0-M7</plugin-surefire.version>
+    <plugin-pmd.version>3.18.0</plugin-pmd.version>
+    <plugin-jxr.version>3.3.0</plugin-jxr.version>
+    <plugin-spotbugs.version>4.7.1.1</plugin-spotbugs.version>
+    <plugin-maven.checkstyle-puppycrawl.version>10.3.3</plugin-maven.checkstyle-puppycrawl.version>
+    <maven-checkstyle-plugin.version>3.2.0</maven-checkstyle-plugin.version>
   </properties>
 
   <dependencies>
@@ -39,6 +39,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>${snakeyaml.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -157,7 +162,7 @@
         <configuration>
           <cveValidForHours>12</cveValidForHours>
           <failBuildOnCVSS>4</failBuildOnCVSS>
-          <suppressionFile>src/main/resources/DependencySuppression.xml</suppressionFile>
+          <suppressionFile>src/test/resources/DependencySuppression.xml</suppressionFile>
         </configuration>
         <executions>
           <execution>

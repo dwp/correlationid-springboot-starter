@@ -1,6 +1,7 @@
 package uk.gov.dwp.health.monitoring.interceptor;
 
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.slf4j.MDC;
@@ -21,11 +22,11 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+@DisplayNameGeneration(ReplaceUnderscores.class)
 class RestTemplateInterceptorTest {
 
   @Test
-  @DisplayName("test intercept exist correlationId passed on")
-  void testInterceptExistCorrelationIdPassedOn() throws IOException {
+  void should_intercept_exist_correlation_id_passed_on() throws IOException {
     var correlationId = UUID.randomUUID().toString();
     MDC.put("correlationId", correlationId);
     var req = mock(HttpRequest.class);
@@ -46,8 +47,7 @@ class RestTemplateInterceptorTest {
   }
 
   @Test
-  @DisplayName("test intercept new correlationId generated and passed on")
-  void testInterceptNewCorrelationIdGeneratedAndPassedOn() throws IOException {
+  void should_intercept_new_correlation_id_generated_and_passed_on() throws IOException {
     var req = mock(HttpRequest.class);
     var headers = spy(new HttpHeaders());
     when(req.getHeaders()).thenReturn(headers);

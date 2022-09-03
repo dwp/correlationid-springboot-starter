@@ -1,15 +1,16 @@
 package uk.gov.dwp.health.monitoring.exception;
 
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisplayNameGeneration(ReplaceUnderscores.class)
 class RestResponseExceptionTest {
 
   @Test
-  @DisplayName("test response exception")
-  void testResponseException() {
+  void test_response_custom_exception() {
     var message = "INTERNAL_ERROR";
     var code = 500;
     var cut = new RestResponseException(message, code);

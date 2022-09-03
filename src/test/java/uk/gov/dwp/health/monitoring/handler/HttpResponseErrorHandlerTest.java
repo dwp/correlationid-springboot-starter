@@ -1,7 +1,8 @@
 package uk.gov.dwp.health.monitoring.handler;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,19 +18,17 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@DisplayNameGeneration(ReplaceUnderscores.class)
 class HttpResponseErrorHandlerTest {
-
   private static HttpResponseErrorHandler cut;
-
   @BeforeAll
   static void setupSpec() {
     cut = new HttpResponseErrorHandler();
   }
 
   @ParameterizedTest
-  @DisplayName("test has error with allowed status code")
   @MethodSource(value = "testCase")
-  void testHasErrorWithAllowedStatusCode(HttpStatus respStatus, boolean expect) throws IOException {
+  void should_has_error_return_with_allowed_status_code(HttpStatus respStatus, boolean expect) throws IOException {
     var underTest = new HttpResponseErrorHandler();
     var response = mock(ClientHttpResponse.class);
     when(response.getStatusCode()).thenReturn(respStatus);
@@ -42,10 +41,9 @@ class HttpResponseErrorHandlerTest {
         Arguments.of(HttpStatus.INTERNAL_SERVER_ERROR, true));
   }
 
-  @DisplayName("test handle error")
   @ParameterizedTest
   @MethodSource(value = "errorTestCases")
-  void testHandleError(HttpStatus status) throws Exception {
+  void should_handle_error_by_response_status(HttpStatus status) throws Exception {
     var resp = mock(ClientHttpResponse.class);
     when(resp.getStatusCode()).thenReturn(status);
     assertThrows(RestResponseException.class, () -> cut.handleError(resp));

@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=uk.gov.dwp.health.monitoring.config.HttpConfig,\
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=uk.gov.dwp.health.monitoring.config.CorrelationInterceptorConfig,\
   uk.gov.dwp.health.monitoring.config.RestTemplateConfig

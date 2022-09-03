@@ -10,17 +10,19 @@ import uk.gov.dwp.health.monitoring.interceptor.CorrelationIdInterceptor;
 
 @Slf4j
 @Configuration
-@ComponentScan(basePackages = {"uk.gov.dwp.health.pip.monitoring"})
+@ComponentScan(basePackages = {"uk.gov.dwp.health.monitoring"})
 @ConditionalOnProperty(
     prefix = "uk.gov.dwp.health.feature.correlation",
     name = {"enabled"},
-    havingValue = "true")
-public class HttpConfig implements WebMvcConfigurer {
+    havingValue = "true",
+    matchIfMissing = true
+)
+public class CorrelationInterceptorConfig implements WebMvcConfigurer {
 
   private final CorrelationIdInterceptor interceptor;
 
-  public HttpConfig(CorrelationIdInterceptor interceptor) {
-    log.info("Initialize correlation id HttpConfig");
+  public CorrelationInterceptorConfig(CorrelationIdInterceptor interceptor) {
+    log.info("Initialize correlation id");
     this.interceptor = interceptor;
   }
 

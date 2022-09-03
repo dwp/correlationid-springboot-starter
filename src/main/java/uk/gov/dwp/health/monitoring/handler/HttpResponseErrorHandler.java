@@ -19,19 +19,20 @@ public class HttpResponseErrorHandler implements ResponseErrorHandler {
   @Override
   public void handleError(ClientHttpResponse response) throws IOException {
     String msg;
+    final var statusCode = response.getStatusCode().value();
     if (response.getStatusCode().series() == SERVER_ERROR) {
-      msg = String.format("Server error - Response code [%s]", response.getStatusCode().value());
+      msg = String.format("Server error - Response code [%s]", statusCode);
       log.error(msg);
-      throw new RestResponseException(msg, response.getStatusCode().value());
+      throw new RestResponseException(msg, statusCode);
     } else if (response.getStatusCode().series() == CLIENT_ERROR) {
       if (response.getStatusCode() == UNAUTHORIZED) {
         msg = "Unauthorized";
         log.info(msg);
-        throw new RestResponseException(msg, response.getStatusCode().value());
+        throw new RestResponseException(msg, statusCode);
       }
-      msg = String.format("Client error - Response code [%s]", response.getStatusCode());
+      msg = String.format("Client error - Response code [%s]", statusCode);
       log.error(msg);
-      throw new RestResponseException(msg, response.getStatusCode().value());
+      throw new RestResponseException(msg, statusCode);
     }
   }
 
