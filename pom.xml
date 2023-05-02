@@ -5,12 +5,12 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.3</version>
+    <version>2.7.11</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>uk.gov.dwp.health</groupId>
   <artifactId>springboot-starter-correlationId</artifactId>
-  <version>2.1.0</version>
+  <version>2.2.0</version>
   <name>Logging with correlation ID springboot stater</name>
   <description>Logging Monitoring</description>
 
@@ -19,9 +19,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <dwp.encoded.log.version>2.2.3-112b45f6</dwp.encoded.log.version>
-    <snakeyaml.version>1.31</snakeyaml.version>
+    <snakeyaml.version>2.0</snakeyaml.version>
     <plugin-jacoco.version>0.8.8</plugin-jacoco.version>
-    <plugin-owasp.version>7.1.2</plugin-owasp.version>
+    <plugin-owasp.version>8.1.1</plugin-owasp.version>
     <plugin-maven-compiler.version>3.10.1</plugin-maven-compiler.version>
     <pitest-junit5-plugin.version>1.0.0</pitest-junit5-plugin.version>
     <plugin-pitest.version>1.9.5</plugin-pitest.version>
